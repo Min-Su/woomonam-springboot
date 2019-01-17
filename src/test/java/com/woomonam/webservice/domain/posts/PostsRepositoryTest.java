@@ -1,8 +1,12 @@
-import com.woomonam.webservice.domain.posts.Posts;
-import com.woomonam.webservice.domain.posts.PostsRepository;
-import org.aspectj.lang.annotation.After;
-import org.springframework.beans.factory.annotation.Autowired;
+package com.woomonam.webservice.domain.posts;
 
+import com.woomonam.webservice.Application;
+import org.junit.After;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
@@ -10,7 +14,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class PostsRepositoryTest {
 
     @Autowired
@@ -31,7 +35,7 @@ public class PostsRepositoryTest {
         postsRepository.save(Posts.builder()
                 .title("테스트 게시글")
                 .content("테스트 본문")
-                .author("jojoldu@gmail.com")
+                .author("karosis28@gmail.com")
                 .build());
 
         //when
